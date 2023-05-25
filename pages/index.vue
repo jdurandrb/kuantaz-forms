@@ -27,7 +27,11 @@
         </v-row>
         <v-row no-gutters>
           <v-card width="85%" class="mx-auto" flat>
-            <v-btn type="submit" class="mt-2" @click="submitData"
+            <v-btn
+              style="border: 0.5px solid black"
+              type="submit"
+              class="mt-2"
+              @click="submitData"
               >Confirmar</v-btn
             >
           </v-card>
