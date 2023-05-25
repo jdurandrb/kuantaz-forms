@@ -105,31 +105,7 @@ const forms = data.data._value;
 const formKeys: String[] = Object.keys(forms);
 const formsStore: any = useFormsStore();
 const submitData = async function () {
-  if (!validateFields()) return;
   await navigateTo({ path: "/results" });
-};
-const validateFields = function (): Boolean {
-  let check = true;
-  if (
-    !formsStore.responses ||
-    (formsStore.responses && formsStore.responses.length === 0) ||
-    (formsStore.responses && Object.keys(formsStore.responses).length === 0)
-  ) {
-    return false;
-  }
-  Object.keys(formsStore.responses).forEach((response) => {
-    if (
-      formsStore.responses[response].value === undefined ||
-      !formsStore.responses[response].value ||
-      (formsStore.responses[response].value &&
-        formsStore.responses[response].value.length === 0) ||
-      (formsStore.responses[response].value &&
-        Object.keys(formsStore.responses[response].value).length === 0)
-    ) {
-      check = false;
-    }
-  });
-  return check;
 };
 const getForms = async function () {
   return await formsStore.getForms();
